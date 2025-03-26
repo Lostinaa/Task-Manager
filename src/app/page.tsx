@@ -5,7 +5,8 @@ export default function Home() {
     
       <main >
       
-      <h1>This is page
+      <h1>
+        This is page
         
       </h1>
         

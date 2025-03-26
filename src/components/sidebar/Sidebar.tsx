@@ -1,26 +1,43 @@
 "use client";
 import styled from 'styled-components';
 import React from 'react';
-import { useGlobalState } from '@/app/context/globalProvider';
+import { useGlobalState } from "@/app/context/globalProvider";
+import Image from 'next/image';
 
-
-function Sbar() {
+function Sidebar() {
   const {theme} = useGlobalState();
   console.log(theme);
 
   return (
-    <div>
-      <div className="Sbar"> 
+    
 
-        <SidebarStyled>
-            this is side bar
+        <SidebarStyled theme={theme}>
+            <div className="profile">
+              <div className="profile-overlay"> </div>
+              <div className="image">
+              <Image width ={70} height ={70} src="/Cool.jpg" alt="profile" />
+              </div>
+              <h1>
+                <span>john</span>
+                <span>doe</span>
+                </h1>
+            </div>
+            <ul className="nav-items">
+              
+            </ul>
         </SidebarStyled>
-      </div>
-    </div>
   )
-}
+      
+  
+} 
+
 const SidebarStyled = styled.nav`
-background: linear-gradient(to right,rgb(120, 100, 142),rgba(175, 88, 88, 0.64));
+position: relative;
+width:${(props)=>props.theme.sidebarWidth};
+background-color: ${(props)=>props.theme.colorBg2};
+border: 2px solid ${(props)=>props.theme.borderColor2};
+border-radius: 1rem;
+
 `;
 
-export default Sbar;
+export default Sidebar;
